@@ -5,12 +5,6 @@ const DOMSelectors = {
     input2: document.getElementById('input2'),
     input3: document.getElementById('input3'),
   };
- 
-  DOMSelectors.box.insertAdjacentHTML(
-    "beforebegin",
-    `We can add text into an HTML file by writing it in JS!`
-  );
- 
 
   DOMSelectors.button.addEventListener("click", function () {
     let input1 = DOMSelectors.input1.value;
@@ -24,8 +18,8 @@ const DOMSelectors = {
           <h2 class="text" id="card">${input1}</h2>
           <img src="${input2}" alt="" class="img">
           <h3 class="text" id="card">${input3}</h3>
-          <button type="submit" id="delete">Remove</button>
       </div>
+      <button type="submit" id="delete">Remove</button>
     </div>
       `
     );
@@ -40,12 +34,12 @@ const DOMSelectors = {
 //     }))
     
 // }
-remove()
+//remove()
   function remove() {
-    let remove = document.querySelectorAll('#delete');
-    remove.forEach((button) => button.addEventListener("click", function (event) {
+    let remove = document.querySelectorAll('#delete')
+    remove.forEach((del) => del.addEventListener("click", function (event) {
       console.log(event.target.parentElement);
-      button.remove();
+      event.target.parentElement.closest.remove();
     }))
     
 }
