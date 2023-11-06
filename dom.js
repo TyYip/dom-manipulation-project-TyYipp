@@ -10,6 +10,7 @@ const DOMSelectors = {
     let input1 = DOMSelectors.input1.value;
     let input2 = DOMSelectors.input2.value;
     let input3 = DOMSelectors.input3.value;
+    clear()
     DOMSelectors.box.insertAdjacentHTML(
       "afterend",
       `
@@ -18,14 +19,13 @@ const DOMSelectors = {
           <h2 class="text" id="card">${input1}</h2>
           <img src="${input2}" alt="" class="img">
           <h3 class="text" id="card">${input3}</h3>
+          <button type="button" id="delete">Remove</button>
       </div>
-      <button type="submit" id="delete">Remove</button>
     </div>
       `
     );
-    DOMSelectors.input1.value = "";
-    DOMSelectors.input2.value = "";
-    DOMSelectors.input3.value = "";
+    const parent = document.querySelector('.parent');
+    remove(parent);
   });
 //   function remove() {
 //     let btns = document.querySelectorAll('button');
@@ -35,12 +35,15 @@ const DOMSelectors = {
     
 // }
 //remove()
-  function remove() {
-    let remove = document.querySelectorAll('#delete')
-    remove.forEach((del) => del.addEventListener("click", function (event) {
-      console.log(event.target.parentElement);
-      event.target.parentElement.closest.remove();
-    }))
-    
+function clear() {
+  DOMSelectors.input1.value = "";
+  DOMSelectors.input2.value = "";
+  DOMSelectors.input3.value = "";
 }
-remove()
+  function remove(parent) {
+    const album = card.querySelector('#delete');
+    album.addEventListener("click", function (event) {
+      parent.closest.remove();
+    });
+};
+
